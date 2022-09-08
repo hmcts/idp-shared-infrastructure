@@ -24,7 +24,7 @@ resource "azurerm_linux_virtual_machine" "application" {
 
   admin_ssh_key {
     username   = "adminuser"
-    #public_key = # key needed here
+    public_key = data.azurerm_key_vault_secret.secret.value
   }
 
   os_disk {
@@ -55,7 +55,7 @@ resource "azurerm_linux_virtual_machine" "trainer" {
 
   admin_ssh_key {
     username   = "adminuser"
-    #public_key = # key needed here
+    public_key = data.azurerm_key_vault_secret.secret.value
   }
 
   os_disk {
