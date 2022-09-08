@@ -24,7 +24,7 @@ resource "azurerm_application_gateway" "idp" {
 
   frontend_port {
     name = "idp-poc-appgw-fe"
-    port = 80
+    port = 443
   }
 
   frontend_ip_configuration {
