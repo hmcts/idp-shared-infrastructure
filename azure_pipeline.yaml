@@ -1,6 +1,6 @@
 # Docs:
 # https://aka.ms/yaml
-
+name: "IDP POC Infrastructure Deployment Pipeline"
 trigger:
   batch: true
   branches:
