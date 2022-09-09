@@ -1,4 +1,4 @@
-// HUB Peering
+#  HUB Peering
 resource "azurerm_virtual_network_peering" "initiator-To-target" {
   provider = azurerm.initiator
 
@@ -23,7 +23,7 @@ resource "azurerm_virtual_network_peering" "target-To-initiator" {
 
 }
 
-// VPN peering
+#  VPN peering
 resource "azurerm_virtual_network_peering" "initiator-To-target" {
   provider = azurerm.initiator
 
