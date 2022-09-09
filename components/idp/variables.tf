@@ -7,7 +7,8 @@ variable "location" {
 }
 
 variable "env" {
-  type = string
+  type    = string
+  default = "prod"
 }
 
 variable "subscription" {}
@@ -15,11 +16,11 @@ variable "subscription" {}
 variable "address_space" {}
 
 variable "product" {
-  default = "idp-poc-infra"
+  default = "cft-platform"
 }
 
 variable "component" {
-  default = ""
+  default = "idp-poc"
 }
 
 variable "virtual_network_type" {
@@ -32,7 +33,8 @@ variable "postgresql_subnet_cidr_blocks" {
 }
 
 variable "builtFrom" {
-  type = string
+  type    = string
+  default = "idp-shared-infrastructure"
 }
 
 variable "environment" {
