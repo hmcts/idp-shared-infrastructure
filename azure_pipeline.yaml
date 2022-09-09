@@ -61,7 +61,7 @@ stages:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               overrideAction: ${{ parameters.overrideAction }}
-              environment: 'prod'
+              environment: 'sbox'
               component: 'idp'
               serviceConnection: 'DCD-IDP-PROD'
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
