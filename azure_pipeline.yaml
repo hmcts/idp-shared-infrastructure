@@ -13,7 +13,7 @@ resources:
       type: github
       ref: refs/heads/master
       name: hmcts/cnp-azuredevops-libraries
-      endpoint: 'hmcts'
+      endpoint: 'hmcts (1)'
 
 variables:
   - name: timeoutInMinutes
