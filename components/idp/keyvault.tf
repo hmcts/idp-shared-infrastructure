@@ -1,5 +1,5 @@
 #module "idp-kv" {
-#  source              = "git@github.com:hmcts/cnp-module-key-vault?ref=master"
+#  source              = "git::https://github.com/cnp-module-key-vault?ref=master"
 #  name                = "idp-poc-${var.env}"
 #  product             = var.product
 #  env                 = var.env

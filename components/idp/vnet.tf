@@ -1,5 +1,5 @@
 module "vnet" {
-  source                        = "git@github.com:hmcts/cnp-module-vnet?ref=fix-address-prefix"
+  source                        = "git::https://github.com/hmcts/cnp-module-vnet?ref=fix-address-prefix"
   name                          = var.vnet_name
   location                      = var.location
   address_space                 = var.address_space

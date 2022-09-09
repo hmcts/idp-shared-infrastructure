@@ -5,7 +5,7 @@
 #}
 #
 #module "idp-poc-db" {
-#  source             = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
+#  source             = "git::https://github.com/hmcts/cnp-module-postgres?ref=postgresql_tf"
 #  product            = var.product
 #  component          = var.component
 #  name               = join("-", [var.product,var.component,"postgres-db-v11"])
