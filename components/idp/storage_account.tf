@@ -1,5 +1,5 @@
 module "storage_account_azcopy" {
-  source                    = "git@github.com:hmcts/cnp-module-storage-account?ref=master"
+  source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
   env                       = var.env
   storage_account_name      = "idp-poc-azcopy"
   resource_group_name       = module.vnet.resource_group_name
@@ -14,7 +14,7 @@ module "storage_account_azcopy" {
 }
 
 module "storage_account_hyperscience" {
-  source                    = "git@github.com:hmcts/cnp-module-storage-account?ref=master"
+  source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
   env                       = var.env
   storage_account_name      = "idp-poc-hyperscience"
   resource_group_name       = module.vnet.resource_group_name
