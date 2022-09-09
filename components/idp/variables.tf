@@ -8,7 +8,6 @@ variable "location" {
 
 variable "env" {
   type    = string
-  default = "prod"
 }
 
 variable "subscription" {}
