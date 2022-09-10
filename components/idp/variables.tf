@@ -7,6 +7,7 @@ variable "location" {
 }
 
 variable "env" {
+
   type = string
 }
 
@@ -39,6 +40,7 @@ variable "builtFrom" {
 
 variable "environment" {
   type = string
+  default = "prod"
 }
 
 # POSTGRES
