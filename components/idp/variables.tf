@@ -7,7 +7,6 @@ variable "location" {
 }
 
 variable "env" {
-  default = "prod"
   type = string
 }
 
