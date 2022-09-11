@@ -37,10 +37,6 @@ variable "builtFrom" {
   default = "idp-shared-infrastructure"
 }
 
-variable "environment" {
-  type = string
-}
-
 # POSTGRES
 
 variable "location_db" {
