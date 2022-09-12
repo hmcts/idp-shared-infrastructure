@@ -11,15 +11,15 @@ module "storage_account_azcopy" {
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
   common_tags = module.ctags.common_tags
-  #default_action            = "Allow"
+  #default_action = "Allow"
 }
 
-resource "azurerm_storage_share" "example" {
-  name                 = "azcopy"
-  storage_account_name = module.storage_account_azcopy.storageaccount_name
-  quota                = var.size_of_fileshare
-
-}
+//resource "azurerm_storage_share" "example" {
+//  name                 = "azcopy"
+//  storage_account_name = module.storage_account_azcopy.storageaccount_name
+//  quota                = var.size_of_fileshare
+//
+//}
 
 module "storage_account_hyperscience" {
   source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
@@ -34,5 +34,5 @@ module "storage_account_hyperscience" {
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
   common_tags = module.ctags.common_tags
-  #default_action            = "Allow"
+  #default_action = "Allow"
 }
