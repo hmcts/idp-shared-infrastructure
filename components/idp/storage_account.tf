@@ -14,12 +14,12 @@ module "storage_account_azcopy" {
   #default_action            = "Allow"
 }
 
-//resource "azurerm_storage_share" "example" {
-//  name                 = "azcopy"
-//  storage_account_name = module.storage_account_azcopy.storageaccount_name
-//  quota                = var.size_of_fileshare
-//
-//}
+resource "azurerm_storage_share" "example" {
+  name                 = "azcopy"
+  storage_account_name = module.storage_account_azcopy.storageaccount_name
+  quota                = var.size_of_fileshare
+
+}
 
 module "storage_account_hyperscience" {
   source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
