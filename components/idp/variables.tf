@@ -51,7 +51,3 @@ variable "postgresql_user" {
 }
 
 variable "postgresql_subnet_cidr" {}
-
-variable "microsoft_external_dns" {
-  default  = "168.63.129.16"
-}
