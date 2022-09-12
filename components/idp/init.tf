@@ -24,3 +24,6 @@ terraform {
 #  features {}
 #  alias = "hub-prod"
 #}
+provider "azurerm" {
+  features {}
+}
