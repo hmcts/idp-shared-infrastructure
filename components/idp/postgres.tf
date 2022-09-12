@@ -8,7 +8,7 @@ module "idp-poc-db" {
   source             = "git::https://github.com/hmcts/cnp-module-postgres?ref=postgresql_tf"
   product            = var.product
   component          = var.component
-  name               = join("-", [var.product,var.component,"postgres-db-v11"])
+  name               = join("-", [var.product, var.component, "postgres-db-v11"])
   location           = var.location_db
   env                = var.env
   database_name      = var.database_name
