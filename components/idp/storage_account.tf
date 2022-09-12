@@ -9,7 +9,7 @@ module "storage_account_azcopy" {
   account_replication_type  = "ZRS"
   access_tier               = "Hot"
   enable_https_traffic_only = true
-  #sa_subnets                = module.vnet.subnet_ids
+  sa_subnets                = module.vnet.subnet_ids
   common_tags    = module.ctags.common_tags
   default_action = "Allow"
 }
@@ -32,7 +32,7 @@ module "storage_account_hyperscience" {
   account_replication_type  = "ZRS"
   access_tier               = "Hot"
   enable_https_traffic_only = true
-  #sa_subnets                = module.vnet.subnet_ids
+  sa_subnets                = module.vnet.subnet_ids
   common_tags    = module.ctags.common_tags
   default_action = "Allow"
 }
