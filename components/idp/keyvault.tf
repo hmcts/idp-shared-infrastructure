@@ -5,4 +5,5 @@ module "idp-kv" {
   env                 = var.env
   resource_group_name = module.vnet.resourcegroup_name
   product_group_name  = "idp"
+  common_tags         = module.ctags.common_tags
 }
