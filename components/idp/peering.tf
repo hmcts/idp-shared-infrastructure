@@ -55,7 +55,7 @@ resource "azurerm_virtual_network_peering" "targetvpn-To-initiator" {
 }
 
 data "azurerm_virtual_network" "vpn" {
-  provider            = azurerm.hub-prod
+  provider            = azurerm.vpn
   name                = "core-infra-vnet-mgmt"
   resource_group_name = "rg-mgmt"
 }
