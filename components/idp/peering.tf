@@ -1,5 +1,5 @@
 # HUB Peering
-# resource "azurerm_virtual_network_peering" "initiator-To-target" {
+# resource "azurerm_virtual_network_peering" "initiator-To-targethub" {
 #   provider = azurerm.initiator
 
 #   name                         = var.initiator_peer_name
@@ -11,7 +11,7 @@
 
 # }
 
-# resource "azurerm_virtual_network_peering" "target-To-initiator" {
+# resource "azurerm_virtual_network_peering" "targethub-To-initiator" {
 #   provider = azurerm.target
 
 #   name                         = var.target_peer_name
@@ -24,7 +24,7 @@
 # }
 
 # VPN peering
-# resource "azurerm_virtual_network_peering" "initiator-To-target" {
+# resource "azurerm_virtual_network_peering" "initiator-To-targetvpn" {
 #   provider = azurerm.initiator
 
 #   name                         = var.initiator_peer_name
@@ -36,7 +36,7 @@
 
 # }
 
-# resource "azurerm_virtual_network_peering" "target-To-initiator" {
+# resource "azurerm_virtual_network_peering" "targetvpn-To-initiator" {
 #   provider = azurerm.target
 
 #   name                         = var.target_peer_name
