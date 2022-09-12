@@ -10,8 +10,8 @@ module "storage_account_azcopy" {
   access_tier               = "Hot"
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
-  common_tags               = module.ctags.common_tags
-  default_action            = "Allow"
+  common_tags    = module.ctags.common_tags
+  default_action = "Allow"
 }
 
 //resource "azurerm_storage_share" "example" {
@@ -33,6 +33,6 @@ module "storage_account_hyperscience" {
   access_tier               = "Hot"
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
-  common_tags               = module.ctags.common_tags
-  default_action            = "Allow"
+  common_tags    = module.ctags.common_tags
+  default_action = "Allow"
 }
