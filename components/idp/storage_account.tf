@@ -1,7 +1,7 @@
 module "storage_account_azcopy" {
   source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
   env                       = var.env
-  storage_account_name      = "idp-poc-azcopy"
+  storage_account_name      = "idppocazcopy"
   resource_group_name       = module.vnet.resourcegroup_name
   location                  = var.location
   account_kind              = "StorageV2"
@@ -23,7 +23,7 @@ resource "azurerm_storage_share" "example" {
 module "storage_account_hyperscience" {
   source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
   env                       = var.env
-  storage_account_name      = "idp-poc-hyperscience"
+  storage_account_name      = "idppochyperscience"
   resource_group_name       = module.vnet.resourcegroup_name
   location                  = var.location
   account_kind              = "StorageV2"
