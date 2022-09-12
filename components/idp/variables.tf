@@ -15,7 +15,7 @@ variable "subscription" {}
 variable "address_space" {}
 
 variable "product" {
-  default = "idp-poc-infra"
+  default = "cft-platform"
 }
 
 variable "component" {
@@ -32,11 +32,7 @@ variable "postgresql_subnet_cidr_blocks" {
 }
 
 variable "builtFrom" {
-  type = string
-}
-
-variable "environment" {
-  type = string
+  default = "idp-shared-infrastructure"
 }
 
 # POSTGRES
@@ -54,3 +50,4 @@ variable "postgresql_user" {
   default = "ipd-poc"
 }
 
+variable "postgresql_subnet_cidr" {}
