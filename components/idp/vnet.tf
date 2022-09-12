@@ -9,5 +9,5 @@ module "vnet" {
   postgresql_subnet_cidr_blocks = var.postgresql_subnet_cidr_blocks
   postgresql_subnet_cidr        = var.postgresql_subnet_cidr
   common_tags                   = module.ctags.common_tags
-  microsoft_external_dns        = ["168.63.129.16"]
+  microsoft_external_dns        = "168.63.129.16"
 }
