@@ -4,6 +4,6 @@ module "idp-kv" {
   product             = var.product
   env                 = var.env
   resource_group_name = module.vnet.resourcegroup_name
-  product_group_name  = "idp"
+  product_group_name  = "DTS IDP POC"
   common_tags         = module.ctags.common_tags
 }
