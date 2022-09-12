@@ -50,3 +50,4 @@ variable "postgresql_user" {
   default = "ipd-poc"
 }
 
+variable "postgresql_subnet_cidr" {}
