@@ -51,3 +51,4 @@ variable "postgresql_user" {
 }
 
 variable "postgresql_subnet_cidr" {}
+variable "size_of_fileshare" {}
