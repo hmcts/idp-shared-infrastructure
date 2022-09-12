@@ -19,4 +19,6 @@ module "idp-poc-db" {
   sku_tier           = "GeneralPurpose"
   subscription       = var.subscription
   common_tags        = module.ctags.common_tags
+  key_vault_name     = module.idp-kv.key_vault_name
+  key_vault_rg       = module.vnet.resourcegroup_name
 }
