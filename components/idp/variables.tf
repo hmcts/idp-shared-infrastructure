@@ -62,5 +62,5 @@ variable "privateendpoints" {
 }
 variable "appgw" {
   type    = string
-  default = "10.131.1.160/27"
+  default = "10.131.1.160/24"
 }
