@@ -62,6 +62,6 @@ resource "azurerm_application_gateway" "idp" {
     rule_type                  = "Basic"
     http_listener_name         = "listener"
     backend_address_pool_name  = "idp-poc-be-address-pool"
-    backend_http_settings_name = "http-setting"
+    backend_http_settings_name = "http-settings"
   }
 }
