@@ -11,3 +11,16 @@ module "vnet" {
   common_tags                   = module.ctags.common_tags
   microsoft_external_dns        = "168.63.129.16"
 }
+resource "azurerm_subnet" "iaas" {
+  name                 = "iaas"
+  resource_group_name  = module.vnet.resourcegroup_name
+  virtual_network_name = module.vnet.vnetname
+  address_prefixes     = [var.iaas]
+}
+
+resource "azurerm_subnet" "private" {
+  name                 = "privateendpoints"
+  resource_group_name  = module.vnet.resourcegroup_name
+  virtual_network_name = module.vnet.vnetname
+  address_prefixes     = [var.privateendpoints]
+}
