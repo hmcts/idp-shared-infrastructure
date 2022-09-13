@@ -9,7 +9,7 @@ module "idp-poc-db" {
   database_name      = var.database_name
   postgresql_user    = var.postgresql_user
   postgresql_version = "11"
-  subnet_id          = module.vnet.postgresql_subnet_id[0]
+  subnet_id          = azurerm_subnet.private.id
   sku_name           = "GP_Gen5_2"
   sku_tier           = "GeneralPurpose"
   subscription       = var.subscription
