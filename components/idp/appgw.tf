@@ -1,6 +1,6 @@
 resource "azurerm_public_ip" "idp" {
   name                = "idp-appgw-fe-ip"
-  resource_group_name = module.vnet.resource_group_name
+  resource_group_name = module.vnet.resourcegroup_name
   location            = var.location
   allocation_method   = "Dynamic"
 }
@@ -8,7 +8,7 @@ resource "azurerm_public_ip" "idp" {
 
 resource "azurerm_application_gateway" "idp" {
   name                = "idp-poc-appgw"
-  resource_group_name = module.vnet.resource_group_name
+  resource_group_name = module.vnet.resourcegroup_name
   location            = var.location
 
   sku {
