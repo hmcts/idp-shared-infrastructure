@@ -16,7 +16,7 @@ resource "azurerm_linux_virtual_machine" "application" {
   name                            = "idp-poc-application"
   resource_group_name             = module.vnet.resourcegroup_name
   location                        = var.location
-  size                            = "D8s_v3"
+  size                            = "Standard_D8s_v3"
   admin_username                  = "adminuser"
   disable_password_authentication = true
   network_interface_ids = [
@@ -59,7 +59,7 @@ resource "azurerm_linux_virtual_machine" "trainer" {
   name                            = "idp-poc-trainer"
   resource_group_name             = module.vnet.resourcegroup_name
   location                        = var.location
-  size                            = "D16ads_v5"
+  size                            = "Standard_D16ds_v5"
   admin_username                  = "adminuser"
   disable_password_authentication = true
   network_interface_ids = [

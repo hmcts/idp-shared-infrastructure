@@ -47,7 +47,7 @@ variable "database_name" {
 }
 
 variable "postgresql_user" {
-  default = "ipdpoc"
+  default = "idppocuser"
 }
 
 variable "postgresql_subnet_cidr" {}
