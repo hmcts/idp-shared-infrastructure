@@ -52,6 +52,7 @@ variable "postgresql_user" {
 
 variable "postgresql_subnet_cidr" {}
 variable "size_of_fileshare" {}
+
 variable "iaas" {
   type    = string
   default = "10.131.1.96/27"
@@ -59,4 +60,8 @@ variable "iaas" {
 variable "privateendpoints" {
   type    = string
   default = "10.131.1.128/27"
+}
+variable "appgw" {
+  type    = string
+  default = "10.131.1.160/27"
 }

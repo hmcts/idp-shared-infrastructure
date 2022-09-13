@@ -24,3 +24,10 @@ resource "azurerm_subnet" "private" {
   virtual_network_name = module.vnet.vnetname
   address_prefixes     = [var.privateendpoints]
 }
+
+resource "azurerm_subnet" "appgw" {
+  name                 = "appgw"
+  resource_group_name  = module.vnet.resourcegroup_name
+  virtual_network_name = module.vnet.vnetname
+  address_prefixes     = [var.appgw]
+}
