@@ -4,7 +4,8 @@ module "idp-kv" {
   product             = var.product
   env                 = var.env
   resource_group_name = module.vnet.resourcegroup_name
-  object_id           = "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  object_id           = data.azurerm_client_config.current.object_id
   product_group_name  = "DTS IDP POC"
   common_tags         = module.ctags.common_tags
 }
