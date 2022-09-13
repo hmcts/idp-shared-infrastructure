@@ -1,8 +1,3 @@
-data "azurerm_subnet" "postgres" {
-  name                 = "idp-poc-subnet-0-${var.env}"
-  resource_group_name  = "idp-poc-${var.env}"
-  virtual_network_name = "idp-poc-infra-${var.env}"
-}
 
 module "idp-poc-db" {
   source             = "git::https://github.com/hmcts/cnp-module-postgres?ref=postgresql_tf"
