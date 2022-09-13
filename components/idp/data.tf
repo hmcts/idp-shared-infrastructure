@@ -4,7 +4,7 @@
 #}
 
 data "azurerm_key_vault_secret" "kv_secret_id" {
-  name         = "wildcard-platform-hmcts.net"
+  name         = "wildcard-platform-hmcts-net"
   key_vault_id = "https://idp-poc-prod.vault.azure.net/certificates/wildcard-platform-hmcts-net/efcaf31f43034f5a9ed74959e698b91e"
 }
 
