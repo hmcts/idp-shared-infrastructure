@@ -49,7 +49,7 @@ resource "azurerm_application_gateway" "idp" {
     frontend_ip_configuration_name = "idp-poc-fe-config"
     frontend_port_name             = "idp-poc-appgw-fe"
     protocol                       = "Https"
-    #ssl_certificate_name          = "platform-wildcard-cert"
+    ssl_certificate_name           = "wildcard-platform-hmcts-net"
   }
 
   #   ssl_certificate {
