@@ -19,7 +19,7 @@ variable "product" {
 }
 
 variable "component" {
-  default = ""
+  default = "idp"
 }
 
 variable "virtual_network_type" {
@@ -43,11 +43,11 @@ variable "location_db" {
 }
 
 variable "database_name" {
-  default = "idp-poc"
+  default = "idppoc"
 }
 
 variable "postgresql_user" {
-  default = "ipd-poc"
+  default = "ipdpoc"
 }
 
 variable "postgresql_subnet_cidr" {}
