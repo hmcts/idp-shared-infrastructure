@@ -52,10 +52,10 @@ resource "azurerm_application_gateway" "idp" {
     ssl_certificate_name           = "wildcard-platform-hmcts-net"
   }
 
-  #   ssl_certificate {
-  #     name                = "platform-wildcard-cert"
-  #     key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_secret_id
-  #   }
+  ssl_certificate {
+    name                = "wildcard-platform-hmcts-net"
+    key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_id.key_vault_secret_id
+  }
 
   request_routing_rule {
     name                       = "request-routing-rule"
