@@ -19,7 +19,7 @@ resource "azurerm_application_gateway" "idp" {
 
   gateway_ip_configuration {
     name      = "idp-poc-config"
-    subnet_id = data.azurerm_subnet.appgw.id
+    subnet_id = var.azurerm_subnet.appgw.id
   }
 
   frontend_port {
@@ -54,9 +54,8 @@ resource "azurerm_application_gateway" "idp" {
   }
 
   ssl_certificate {
-    name     = ""
-    data     = ""
-    password = ""
+    name                = "platform-wildcard-cert"
+    key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_secret_id
   }
 
   request_routing_rule {
