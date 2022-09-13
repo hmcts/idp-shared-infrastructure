@@ -39,10 +39,9 @@ resource "azurerm_application_gateway" "idp" {
   backend_http_settings {
     name                  = "http-settings"
     cookie_based_affinity = "Disabled"
-    path                  = "/path1/"
     port                  = 80
     protocol              = "Http"
-    request_timeout       = 60
+    request_timeout       = 30
   }
 
   http_listener {
@@ -50,13 +49,13 @@ resource "azurerm_application_gateway" "idp" {
     frontend_ip_configuration_name = "idp-poc-fe-config"
     frontend_port_name             = "idp-poc-appgw-fe"
     protocol                       = "Https"
-    ssl_certificate_name           = "platform-wildcard-cert"
+    #ssl_certificate_name           = "platform-wildcard-cert"
   }
 
-  ssl_certificate {
-    name                = "platform-wildcard-cert"
-    key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_secret_id
-  }
+#   ssl_certificate {
+#     name                = "platform-wildcard-cert"
+#     key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_secret_id
+#   }
 
   request_routing_rule {
     name                       = "request-routing-rule"
