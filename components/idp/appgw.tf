@@ -19,7 +19,7 @@ resource "azurerm_application_gateway" "idp" {
 
   gateway_ip_configuration {
     name      = "idp-poc-config"
-    subnet_id = var.azurerm_subnet.appgw.id
+    subnet_id = azurerm_subnet.appgw.id
   }
 
   frontend_port {
