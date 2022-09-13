@@ -1,8 +1,8 @@
 resource "azurerm_public_ip" "idp" {
-  name  = "idp-appgw-fe-ip"
+  name                = "idp-appgw-fe-ip"
   resource_group_name = module.vnet.resource_group_name
-  location = var.location
-  allocation_method = "Dynamic"
+  location            = var.location
+  allocation_method   = "Dynamic"
 }
 
 
@@ -11,7 +11,7 @@ resource "azurerm_application_gateway" "idp" {
   resource_group_name = module.vnet.resource_group_name
   location            = var.location
 
-  sku { 
+  sku {
     name     = "Standard_v2"
     tier     = "Standard_v2"
     capacity = 2
@@ -49,13 +49,13 @@ resource "azurerm_application_gateway" "idp" {
     frontend_ip_configuration_name = "idp-poc-fe-config"
     frontend_port_name             = "idp-poc-appgw-fe"
     protocol                       = "Https"
-    #ssl_certificate_name           = "platform-wildcard-cert"
+    #ssl_certificate_name          = "platform-wildcard-cert"
   }
 
-#   ssl_certificate {
-#     name                = "platform-wildcard-cert"
-#     key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_secret_id
-#   }
+  #   ssl_certificate {
+  #     name                = "platform-wildcard-cert"
+  #     key_vault_secret_id = data.azurerm_key_vault_secret.kv_secret_id.key_vault_secret_id
+  #   }
 
   request_routing_rule {
     name                       = "request-routing-rule"
