@@ -37,7 +37,7 @@ resource "azurerm_linux_virtual_machine" "application" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "20.04-LTS"
+    sku       = "20_04-LTS"
     version   = "latest"
   }
   tags = module.ctags.common_tags
@@ -80,7 +80,7 @@ resource "azurerm_linux_virtual_machine" "trainer" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "20.04-LTS"
+    sku       = "20_04-LTS"
     version   = "latest"
   }
   tags = module.ctags.common_tags
