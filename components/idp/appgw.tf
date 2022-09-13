@@ -11,15 +11,15 @@ resource "azurerm_application_gateway" "idp" {
   resource_group_name = module.vnet.resource_group_name
   location            = var.location
 
-  sku {
-    name     = "Standard_Small"
-    tier     = "Standard"
+  sku { 
+    name     = "Standard_v2"
+    tier     = "Standard_v2"
     capacity = 2
   }
 
   gateway_ip_configuration {
     name      = "idp-poc-config"
-    subnet_id = azurerm_subnet.frontend.id #subnet needed here
+    subnet_id = data.azurerm_subnet.appgw.id
   }
 
   frontend_port {
@@ -50,6 +50,13 @@ resource "azurerm_application_gateway" "idp" {
     frontend_ip_configuration_name = "idp-poc-fe-config"
     frontend_port_name             = "idp-poc-appgw-fe"
     protocol                       = "Https"
+    ssl_certificate_name           = "platform-wildcard-cert"
+  }
+
+  ssl_certificate {
+    name     = ""
+    data     = ""
+    password = ""
   }
 
   request_routing_rule {
