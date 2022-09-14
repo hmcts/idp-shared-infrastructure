@@ -12,6 +12,11 @@ module "storage_account_azcopy" {
   #sa_subnets                = module.vnet.subnet_ids
   common_tags = module.ctags.common_tags
   sa_subnets  = [azurerm_subnet.iaas.id]
+  role_assignments = [
+    "Storage Blob Delegator",
+    "Storage Blob Data Contributor",
+  "Storage Blob Data Reader"]
+  managed_identity_object_id = data.azurerm_client_config.current.object_id
 }
 
 resource "azurerm_storage_share" "share" {
