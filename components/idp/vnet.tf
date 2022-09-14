@@ -28,7 +28,7 @@ resource "azurerm_subnet" "private" {
 resource "azurerm_private_endpoint" "private-endpoint" {
   name                = "idp-poc-postgres-private-endpoint"
   location            = module.vnet.location
-  resource_group_name = module.vnet.resource_group_name
+  resource_group_name = module.vnet.resourcegroup_name
   subnet_id           = azurerm_subnet.private.id
 
   private_service_connection {
