@@ -33,7 +33,7 @@ resource "azurerm_private_endpoint" "private-endpoint" {
 
   private_service_connection {
     name                           = "idp-poc-postgres-privateserviceconnection"
-    private_connection_resource_id = module.postgres.id
+    private_connection_resource_id = module.idp-poc-db.id
     is_manual_connection           = false
   }
 }
