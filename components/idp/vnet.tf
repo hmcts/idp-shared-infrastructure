@@ -25,20 +25,6 @@ resource "azurerm_subnet" "private" {
   address_prefixes     = [var.privateendpoints]
 }
 
-resource "azurerm_private_endpoint" "private-endpoint" {
-  name                = "idp-poc-postgres-private-endpoint"
-  location            = var.location
-  resource_group_name = module.vnet.resourcegroup_name
-  subnet_id           = azurerm_subnet.private.id
-
-  private_service_connection {
-    name                           = "idp-poc-postgres-privateserviceconnection"
-    private_connection_resource_id = module.idp-poc-db.id
-    is_manual_connection           = false
-    subresource_names              = ["postgresqlServer"]
-  }
-}
-
 resource "azurerm_subnet" "appgw" {
   name                 = "appgw"
   resource_group_name  = module.vnet.resourcegroup_name
