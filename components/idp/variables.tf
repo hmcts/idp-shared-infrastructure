@@ -26,11 +26,6 @@ variable "virtual_network_type" {
   default = "External"
 }
 
-variable "postgresql_subnet_cidr_blocks" {
-  type    = set(string)
-  default = []
-}
-
 variable "builtFrom" {
   default = "idp-shared-infrastructure"
 }
@@ -50,7 +45,9 @@ variable "postgresql_user" {
   default = "idppocuser"
 }
 
-variable "postgresql_subnet_cidr" {}
+variable "postgresql_subnet_cidr" {
+  default = ""
+}
 variable "size_of_fileshare" {}
 
 variable "iaas" {

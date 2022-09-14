@@ -11,15 +11,22 @@ module "storage_account_azcopy" {
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
   common_tags = module.ctags.common_tags
-  #default_action = "Allow"
+  sa_subnets = [
+  "/subscriptions/a0939257-9c73-48ab-8daa-51cd49ef6c42/resourceGroups/idp-poc-infra-prod/providers/Microsoft.Network/virtualNetworks/idp-poc-infra-vnet-prod/subnets/iaas"]
 }
 
-//resource "azurerm_storage_share" "example" {
-//  name                 = "azcopy"
-//  storage_account_name = module.storage_account_azcopy.storageaccount_name
-//  quota                = var.size_of_fileshare
-//
-//}
+resource "azurerm_storage_share" "example" {
+  name                 = "azcopy"
+  storage_account_name = module.storage_account_azcopy.storageaccount_name
+  quota                = var.size_of_fileshare
+
+}
+resource "azurerm_role_assignment" "af_role" {
+  scope              = module.storage_account_azcopy.storageaccount_id
+  role_definition_id = data.azurerm_role_definition.storage_role.id
+  principal_id       = data.azurerm_client_config.current.object_id
+}
+
 
 module "storage_account_hyperscience" {
   source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
