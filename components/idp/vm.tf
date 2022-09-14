@@ -133,3 +133,16 @@ resource "azurerm_subnet_network_security_group_association" "iaas" {
 }
 
 
+resource "azurerm_network_security_rule" "PF-SSH" {
+  name                        = "appw"
+  priority                    = 200
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "80"
+  source_address_prefix       = var.appgw
+  destination_address_prefix  = "*"
+  network_security_group_name = azurerm_network_security_group.nsg.name
+  resource_group_name         = module.vnet.resourcegroup_name
+}
