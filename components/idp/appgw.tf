@@ -1,9 +1,10 @@
-//resource "azurerm_public_ip" "idp" {
-//  name                = "idp-appgw-fe-ip"
-//  resource_group_name = module.vnet.resourcegroup_name
-//  location            = var.location
-//  allocation_method   = "Dynamic"
-//}
+resource "azurerm_public_ip" "idp" {
+  name                = "idp-appgw-fe-ip"
+  resource_group_name = module.vnet.resourcegroup_name
+  location            = var.location
+  allocation_method   = "Dynamic"
+  sku                 = "Standard"
+}
 
 
 resource "azurerm_application_gateway" "idp" {
@@ -33,7 +34,10 @@ resource "azurerm_application_gateway" "idp" {
     private_ip_address            = cidrhost(var.appgw, 10)
     private_ip_address_allocation = "Static"
   }
-
+  frontend_ip_configuration {
+    name                 = "idp-poc-fe-config-pub"
+    public_ip_address_id = azurerm_public_ip.idp.id
+  }
   backend_address_pool {
     name         = "idp-poc-be-address-pool"
     ip_addresses = [azurerm_network_interface.app_nic.private_ip_address, azurerm_network_interface.trainer.private_ip_address]
