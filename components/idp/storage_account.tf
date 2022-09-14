@@ -11,12 +11,11 @@ module "storage_account_azcopy" {
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
   common_tags = module.ctags.common_tags
-  sa_subnets = [
-  "/subscriptions/a0939257-9c73-48ab-8daa-51cd49ef6c42/resourceGroups/idp-poc-infra-prod/providers/Microsoft.Network/virtualNetworks/idp-poc-infra-vnet-prod/subnets/iaas"]
+  sa_subnets  = [azurerm_subnet.iaas.id]
 }
 
-resource "azurerm_storage_share" "example" {
-  name                 = "azcopy"
+resource "azurerm_storage_share" "share" {
+  name                 = "idpazcopy"
   storage_account_name = module.storage_account_azcopy.storageaccount_name
   quota                = var.size_of_fileshare
 
