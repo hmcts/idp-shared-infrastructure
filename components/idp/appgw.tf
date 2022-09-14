@@ -67,7 +67,7 @@ resource "azurerm_application_gateway" "idp" {
   }
   identity {
     type         = "UserAssigned"
-    identity_ids = azurerm_user_assigned_identity.id-agw.id
+    identity_ids = [azurerm_user_assigned_identity.id-agw.id]
   }
 }
 
