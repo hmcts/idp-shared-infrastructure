@@ -8,5 +8,5 @@ module "idp-kv" {
   object_id                   = data.azurerm_client_config.current.object_id
   product_group_name          = "DTS IDP POC"
   common_tags                 = module.ctags.common_tags
-  managed_identity_object_ids = [azurerm_user_assigned_identity.id-agw.id]
+  managed_identity_object_ids = [azurerm_user_assigned_identity.id-agw.principal_id]
 }
