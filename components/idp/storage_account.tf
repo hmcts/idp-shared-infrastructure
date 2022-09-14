@@ -41,5 +41,7 @@ module "storage_account_hyperscience" {
   enable_https_traffic_only = true
   #sa_subnets                = module.vnet.subnet_ids
   common_tags = module.ctags.common_tags
-  #default_action = "Allow"
+  sa_subnets = [
+  "/subscriptions/a0939257-9c73-48ab-8daa-51cd49ef6c42/resourceGroups/idp-poc-infra-prod/providers/Microsoft.Network/virtualNetworks/idp-poc-infra-vnet-prod/subnets/iaas"]
+
 }

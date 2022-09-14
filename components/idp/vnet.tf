@@ -15,6 +15,7 @@ resource "azurerm_subnet" "iaas" {
   resource_group_name  = module.vnet.resourcegroup_name
   virtual_network_name = module.vnet.vnetname
   address_prefixes     = [var.iaas]
+  service_endpoints    = ["Microsoft.Storage"]
 }
 
 resource "azurerm_subnet" "private" {

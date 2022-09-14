@@ -85,3 +85,30 @@ resource "azurerm_linux_virtual_machine" "trainer" {
   }
   tags = module.ctags.common_tags
 }
+
+#NSG
+resource "azurerm_network_security_group" "nsg" {
+  name                = "idp_nsg"
+  location            = var.location
+  resource_group_name = module.vnet.resourcegroup_name
+
+  security_rule {
+    name                       = "bastion"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "10.48.0.6"
+    destination_address_prefix = "*"
+  }
+
+  tags = module.ctags.common_tags
+
+}
+
+resource "azurerm_subnet_network_security_group_association" "iaas" {
+  subnet_id                 = azurerm_subnet.iaas.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
+}
