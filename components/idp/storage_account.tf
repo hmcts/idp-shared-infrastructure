@@ -19,17 +19,6 @@ module "storage_account_azcopy" {
   managed_identity_object_id = data.azurerm_client_config.current.object_id
 }
 
-resource "azurerm_storage_share" "share" {
-  name                 = "idpazcopy"
-  storage_account_name = module.storage_account_azcopy.storageaccount_name
-  quota                = var.size_of_fileshare
-
-}
-resource "azurerm_role_assignment" "af_role" {
-  scope              = module.storage_account_azcopy.storageaccount_id
-  role_definition_id = data.azurerm_role_definition.storage_role.id
-  principal_id       = data.azurerm_client_config.current.object_id
-}
 
 
 module "storage_account_hyperscience" {
