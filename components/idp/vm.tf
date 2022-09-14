@@ -43,6 +43,25 @@ resource "azurerm_linux_virtual_machine" "application" {
   tags = module.ctags.common_tags
 }
 
+
+//managed disk for application vm
+resource "azurerm_managed_disk" "manageddisk" {
+  name                 = "idp-poc-application-disk1"
+  location             = var.location
+  resource_group_name  = module.vnet.resourcegroup_name
+  storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = 100
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "example" {
+  managed_disk_id    = azurerm_managed_disk.manageddisk.id
+  virtual_machine_id = azurerm_linux_virtual_machine.application.id
+  lun                = "10"
+  caching            = "ReadWrite"
+}
+
+//trainer vm
 resource "azurerm_network_interface" "trainer" {
   name                = "idp-poc-trainer-nic"
   location            = var.location
@@ -112,3 +131,5 @@ resource "azurerm_subnet_network_security_group_association" "iaas" {
   subnet_id                 = azurerm_subnet.iaas.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
+
+
