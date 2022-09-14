@@ -27,6 +27,6 @@ data "azurerm_private_dns_zone" "zone" {
 resource "azurerm_private_dns_zone_virtual_network_link" "link" {
   name                  = "idp-poc-prod"
   resource_group_name   = "core-infra-intsvc-rg"
-  private_dns_zone_name = azurerm_private_dns_zone.zone.name
+  private_dns_zone_name = data.azurerm_private_dns_zone.zone.name
   virtual_network_id    = module.vnet.vnet_id
 }
