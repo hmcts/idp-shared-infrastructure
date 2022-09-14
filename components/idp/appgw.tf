@@ -64,6 +64,7 @@ resource "azurerm_application_gateway" "idp" {
     http_listener_name         = "listener"
     backend_address_pool_name  = "idp-poc-be-address-pool"
     backend_http_settings_name = "http-settings"
+    priority                   = 1
   }
   identity {
     type         = "UserAssigned"
