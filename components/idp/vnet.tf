@@ -32,9 +32,9 @@ resource "azurerm_private_endpoint" "private-endpoint" {
   subnet_id           = azurerm_subnet.private.id
 
   private_service_connection {
-    name = "idp-poc-postgres-privateserviceconnection"
-    # private_connection_resource_alias = "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice"
-    is_manual_connection = true
+    name                           = "idp-poc-postgres-privateserviceconnection"
+    private_connection_resource_id = module.postgres.id
+    is_manual_connection           = false
   }
 }
 
