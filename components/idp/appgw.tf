@@ -65,4 +65,15 @@ resource "azurerm_application_gateway" "idp" {
     backend_address_pool_name  = "idp-poc-be-address-pool"
     backend_http_settings_name = "http-settings"
   }
+  identity {
+    type         = UserAssigned
+    identity_ids = azurerm_user_assigned_identity.id-agw.id
+  }
+}
+
+
+resource "azurerm_user_assigned_identity" "id-agw" {
+  resource_group_name = module.vnet.resourcegroup_name
+  location            = var.location
+  name                = "idp-aggw-mi"
 }
