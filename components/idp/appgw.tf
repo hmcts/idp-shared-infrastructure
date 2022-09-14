@@ -66,7 +66,7 @@ resource "azurerm_application_gateway" "idp" {
     backend_http_settings_name = "http-settings"
   }
   identity {
-    type         = UserAssigned
+    type         = "UserAssigned"
     identity_ids = azurerm_user_assigned_identity.id-agw.id
   }
 }
