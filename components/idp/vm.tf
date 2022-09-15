@@ -153,7 +153,7 @@ resource "azurerm_dev_test_global_vm_shutdown_schedule" "shutdown" {
   location           = var.location
   enabled            = true
 
-  daily_recurrence_time = "1100"
+  daily_recurrence_time = "1800"
   timezone              = "GMT Standard Time"
 
   notification_settings {
