@@ -18,12 +18,6 @@ module "idp-poc-db" {
   key_vault_rg       = module.vnet.resourcegroup_name
 }
 
-data "azurerm_private_dns_zone" "zone" {
-  provider            = azurerm.dts-cftptl
-  name                = "privatelink.postgres.database.azure.com"
-  resource_group_name = "core-infra-intsvc-rg"
-}
-
 resource "azurerm_private_dns_zone_virtual_network_link" "link" {
   name                  = "idp-poc-prod"
   resource_group_name   = "core-infra-intsvc-rg"

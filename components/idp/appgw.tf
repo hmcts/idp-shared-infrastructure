@@ -78,9 +78,20 @@ resource "azurerm_application_gateway" "idp" {
   }
 }
 
-
+//MI
 resource "azurerm_user_assigned_identity" "id-agw" {
   resource_group_name = module.vnet.resourcegroup_name
   location            = var.location
   name                = "idp-aggw-mi"
 }
+
+//dns
+resource "azurerm_private_dns_a_record" "appgw" {
+  name                = "idp"
+  zone_name           = data.azurerm_private_dns_zone.appgw.name
+  resource_group_name = "core-infra-intsvc-rg"
+  ttl                 = 300
+  records             = cidrhost(var.appgw, 10)
+  provider            = azurerm.dts-cftptl
+}
+
