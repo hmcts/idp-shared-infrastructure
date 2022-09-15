@@ -147,16 +147,15 @@ resource "azurerm_network_security_rule" "PF-SSH" {
   resource_group_name         = module.vnet.resourcegroup_name
 }
 
+# resource "azurerm_dev_test_global_vm_shutdown_schedule" "shutdown" {
+#   virtual_machine_id = azurerm_linux_virtual_machine.application.id
+#   location           = var.location
+#   enabled            = true
 
-resource "azurerm_dev_test_global_vm_shutdown_schedule" "shutdown" {
-  virtual_machine_id = azurerm_linux_virtual_machine.application.id
-  location           = var.location
-  enabled            = true
+#   daily_recurrence_time = "1100"
+#   timezone              = "GMT Standard Time"
 
-  daily_recurrence_time = "1800"
-  timezone              = "GMT Standard Time"
-
-  notification_settings {
-    enabled = false
-  }
-}
+#   notification_settings {
+#     enabled = false
+#   }
+# }
