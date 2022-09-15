@@ -91,7 +91,7 @@ resource "azurerm_private_dns_a_record" "appgw" {
   zone_name           = data.azurerm_private_dns_zone.appgw.name
   resource_group_name = "core-infra-intsvc-rg"
   ttl                 = 300
-  records             = cidrhost(var.appgw, 10)
+  records             = [cidrhost(var.appgw, 10)]
   provider            = azurerm.dts-cftptl
 }
 
