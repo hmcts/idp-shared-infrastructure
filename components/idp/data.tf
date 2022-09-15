@@ -13,6 +13,11 @@ data "azurerm_key_vault_secret" "secret" {
   key_vault_id = module.idp-kv.key_vault_id
 }
 
+data "azurerm_key_vault_secret" "public_key" {
+  name         = "sshpubkey"
+  key_vault_id = module.idp-kv.key_vault_id
+}
+
 data "azurerm_private_dns_zone" "zone" {
   provider            = azurerm.dts-cftptl
   name                = "privatelink.postgres.database.azure.com"
