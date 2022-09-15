@@ -94,4 +94,3 @@ resource "azurerm_private_dns_a_record" "appgw" {
   records             = [cidrhost(var.appgw, 10)]
   provider            = azurerm.dts-cftptl
 }
-
