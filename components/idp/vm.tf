@@ -87,7 +87,7 @@ resource "azurerm_linux_virtual_machine" "trainer" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = data.azurerm_key_vault_secret.secret.value
+    public_key = data.azurerm_key_vault_secret.public_key.value
   }
 
   os_disk {
