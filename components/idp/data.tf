@@ -8,11 +8,6 @@ data "azurerm_key_vault_certificate" "wildcard_cert" {
 
 data "azurerm_client_config" "current" {}
 
-data "azurerm_key_vault_secret" "secret" {
-  name         = "adminuser"
-  key_vault_id = module.idp-kv.key_vault_id
-}
-
 data "azurerm_key_vault_secret" "public_key" {
   name         = "sshpubkey"
   key_vault_id = module.idp-kv.key_vault_id
