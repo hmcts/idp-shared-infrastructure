@@ -19,7 +19,7 @@ variables:
   - name: timeoutInMinutes
     value: 60
   - name: agentPool
-    value: 'ubuntu-latest'
+    value: 'hmcts-ss-prod'
   - name: build
     value: $(Build.BuildNumber)
   - name: product
@@ -41,8 +41,7 @@ stages:
   - stage: Precheck
     jobs:
       - job:
-        pool:
-          vmImage: ${{ variables.agentPool }}
+        pool: ${{ variables.agentPool }}
         timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         steps:
           - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
@@ -54,8 +53,7 @@ stages:
   - stage: Deployment
     jobs:
       - job: TerraformPlanApplyDestroy
-        pool:
-          vmImage: ${{ variables.agentPool }}
+        pool: ${{ variables.agentPool }}
         timeoutInMinutes: ${{ variables.timeoutInMinutes }}
         steps:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
