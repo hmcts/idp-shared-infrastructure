@@ -39,7 +39,7 @@ module "storage_account_hyperscience" {
 
 }
 
-module "storage_account_hyperscience" {
+module "storage_account_hypersciencefile" {
   source                    = "git::https://github.com/hmcts/cnp-module-storage-account?ref=master"
   env                       = var.env
   storage_account_name      = "idppochypersciencefile"
