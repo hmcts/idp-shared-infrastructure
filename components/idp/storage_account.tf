@@ -51,8 +51,8 @@ module "storage_account_hypersciencefile" {
   access_tier               = "Hot"
   enable_https_traffic_only = true
   #sa_subnets               = module.vnet.subnet_ids
-  common_tags               = module.ctags.common_tags
+  common_tags = module.ctags.common_tags
   sa_subnets = [
     "/subscriptions/a0939257-9c73-48ab-8daa-51cd49ef6c42/resourceGroups/idp-poc-infra-prod/providers/Microsoft.Network/virtualNetworks/idp-poc-infra-vnet-prod/subnets/iaas",
-    "/subscriptions/2b1afc19-5ca9-4796-a56f-574a58670244/resourceGroups/bastion-prod-rg/providers/Microsoft.Network/virtualNetworks/bastion-prod-vnet/subnets/bastion"]
+  "/subscriptions/2b1afc19-5ca9-4796-a56f-574a58670244/resourceGroups/bastion-prod-rg/providers/Microsoft.Network/virtualNetworks/bastion-prod-vnet/subnets/bastion"]
 }
