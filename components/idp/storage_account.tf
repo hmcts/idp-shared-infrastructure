@@ -36,6 +36,10 @@ module "storage_account_hyperscience" {
   common_tags = module.ctags.common_tags
   sa_subnets = [
   "/subscriptions/a0939257-9c73-48ab-8daa-51cd49ef6c42/resourceGroups/idp-poc-infra-prod/providers/Microsoft.Network/virtualNetworks/idp-poc-infra-vnet-prod/subnets/iaas"]
-
+  role_assignments = [
+    "Storage Blob Delegator",
+    "Storage Blob Data Contributor",
+  "Storage Blob Data Reader"]
+  managed_identity_object_id = data.azurerm_client_config.current.object_id
 }
 
